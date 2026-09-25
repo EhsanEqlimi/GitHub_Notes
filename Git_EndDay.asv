@@ -1,9 +1,11 @@
+
 %% =========================================================
-%  Git Start of Day
+%  Git End of Day
 %  Ehsan Eqlimi
-%  Pull latest code before working
+%  Commit and push today's changes
 %  Does NOT delete .git
 % ==========================================================
+
 clc;close all;clear
 
 %% 1. Find project folder
@@ -24,27 +26,56 @@ else
     cd(['/Users/' UserName '/GitHubRepo/ThreeCat20chanFrontalBetaProjectCodes']);
 end
 
-%% 2. Show current location
+%% 2. Show current status
 
 disp('==========================================');
-disp('Git project folder:');
-disp(pwd);
+disp('Git status before commit');
 disp('==========================================');
-
-%% 3. Check Git repository
 
 !git status
 
-%% 4. Get latest changes from GitHub
+%% 3. Show changes
 
 disp(' ');
-disp('Pulling latest changes from GitHub...');
+disp('Changes detected:');
 disp(' ');
 
-!git pull
+!git diff --stat
+
+%% 4. Add changes
+
+disp(' ');
+disp('Adding changed files...');
+disp(' ');
+
+!git add .
+
+%% 5. Check staged changes
+
+disp(' ');
+disp('Files staged for commit:');
+disp(' ');
+
+!git status
+
+%% 6. Commit
+
+disp(' ');
+disp('Creating commit...');
+disp(' ');
+
+!git commit -m "Update research code"
+
+%% 7. Push to GitHub
+
+disp(' ');
+disp('Pushing changes to GitHub...');
+disp(' ');
+
+!git push
 
 disp(' ');
 disp('==========================================');
-disp('Ready to work.');
+disp('GitHub update complete.');
 disp('Ehsan Eqlimi');
-disp('==========================================')
+disp('==========================================');
